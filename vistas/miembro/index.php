@@ -100,3 +100,13 @@ include('head.php');
 <?php 
 include('foot.php');
 ?>
+  <script type="text/javascript">
+    function preguntar(id_miembro){
+      if(confirm('¿Estas seguro que deseas eliminar?'))
+      {
+        window.location.href = "../../delete/eliminar_miembro.php?del=" + id_miembro;
+      }
+
+    }
+
+  </script>

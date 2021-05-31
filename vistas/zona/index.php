@@ -94,3 +94,13 @@ include('head.php');
 <?php 
 include('foot.php');
 ?>
+  <script type="text/javascript">
+    function preguntar(id_zona){
+      if(confirm('¿Estas seguro que deseas eliminar?'))
+      {
+        window.location.href = "../../delete/eliminar_zona.php?del=" + id_zona;
+      }
+
+    }
+
+  </script>

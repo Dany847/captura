@@ -88,3 +88,13 @@ include('head.php');
 <?php 
 include('foot.php');
 ?>
+  <script type="text/javascript">
+    function preguntar(id_actividad){
+      if(confirm('¿Estas seguro que deseas eliminar?'))
+      {
+        window.location.href = "../../delete/eliminar_actividad.php?del=" + id_actividad;
+      }
+
+    }
+
+  </script>

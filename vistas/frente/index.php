@@ -82,3 +82,13 @@ include('head.php');
 <?php 
 include('foot.php');
 ?>
+  <script type="text/javascript">
+    function preguntar(id_frente){
+      if(confirm('¿Estas seguro que deseas eliminar?'))
+      {
+        window.location.href = "../../delete/eliminar_frente.php?del=" + id_frente;
+      }
+
+    }
+
+  </script>

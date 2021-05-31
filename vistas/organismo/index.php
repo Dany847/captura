@@ -95,3 +95,13 @@ include('head.php');
 <?php 
 include('foot.php');
 ?>
+  <script type="text/javascript">
+    function preguntar(id_organismo){
+      if(confirm('¿Estas seguro que deseas eliminar?'))
+      {
+        window.location.href = "../../delete/eliminar_organismo.php?del=" + id_organismo;
+      }
+
+    }
+
+  </script>
