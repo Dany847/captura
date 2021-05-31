@@ -54,7 +54,7 @@ include('head.php');
                <td><?php echo $contar; ?></td>
                <td><?php echo $fila['nombre_frente']; ?></td>
                <td style="text-align: center; width: 200px;" >
-                <a onclick="preguntar(<?php echo $fila['id_frente']?>)"><img src="../img/boton-x.png"  width="20" height="20" border=0/> </a>
+                <a onclick="eliminar(<?php echo $fila['id_frente']?>)"><img src="../img/boton-x.png"  width="20" height="20" border=0/> </a>
 
                 &nbsp; &nbsp; &nbsp;
                 <?php echo "<a href='up_frente.php?id_frente=".$fila['id_frente']."'> <img src='../img/boton-editar.png'  width='20' height='20' border=0/> </a>"; ?>
@@ -82,13 +82,36 @@ include('head.php');
 <?php 
 include('foot.php');
 ?>
+ <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
   <script type="text/javascript">
-    function preguntar(id_frente){
-      if(confirm('¿Estas seguro que deseas eliminar?'))
-      {
-        window.location.href = "../../delete/eliminar_frente.php?del=" + id_frente;
-      }
-
-    }
-
-  </script>
+  function eliminar(id_frente) {
+    console.log(id_frente);
+    swal({
+      title: "Esta seguro de Eliminar?",
+      text: "Una vez eliminado no se prodra restablecer!",
+      icon: "warning",
+      buttons: true,
+      dangerMode: true,
+    })
+    .then((OK) => {
+      if (OK) {
+        $.ajax({
+         url:"../../delete/eliminar_frente.php?del=" + id_frente,
+         success: function(res) {
+          console.log(res);
+        },      
+      });
+        swal("Poof! Registro eliminado!", {
+          icon: "success",
+        }).then((ok)=>{
+          if(ok){
+            location.href="../frente/index.php";
+          }
+        });
+      } 
+    });
+  }
+</script>
