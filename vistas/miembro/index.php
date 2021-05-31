@@ -9,12 +9,12 @@ include('head.php');
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>Datos de Captura</h1>
+                    <h1>Datos de la persona</h1>
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="#">Inicio</a></li>
-                        <li class="breadcrumb-item active">Captura</li>
+                        <li class="breadcrumb-item active">Organismo</li>
                     </ol>
                 </div>
             </div>

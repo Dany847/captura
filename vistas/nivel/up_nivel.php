@@ -13,12 +13,12 @@ $fila = $quey->fetch_array();
    <div class="container-fluid">
     <div class="row mb-2">
      <div class="col-sm-6">
-      <h1>Capturar nombre de la nivel</h1>
+      <h1>Actualizar datos de nivel de antorchista</h1>
    </div>
    <div class="col-sm-6">
       <ol class="breadcrumb float-sm-right">
        <li class="breadcrumb-item"><a href="#">Inicio</a></li>
-       <li class="breadcrumb-item active">Zona</li>
+       <li class="breadcrumb-item active">Nivel</li>
     </ol>
  </div>
 </div>

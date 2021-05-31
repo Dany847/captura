@@ -67,13 +67,13 @@
  <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
    <li class="nav-item">
        <a href="../nivel/index.php" class="nav-link">
-        <i class="fas fa-paste"></i>
+        <i class="fas fa-th-list"></i>
           <p> &nbsp; Nivel</p>
      </a>
       </li>
      <li class="nav-item">
      <a href="index.php" class="nav-link">
-        <i class="fas fa-paste"></i>
+        <i class="fas fa-th-large"></i>
           <p> &nbsp; Frente</p>
      </a>
    </li>

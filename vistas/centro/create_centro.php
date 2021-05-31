@@ -9,12 +9,12 @@ include('head.php');
    <div class="container-fluid">
     <div class="row mb-2">
      <div class="col-sm-6">
-      <h1>Capturar nombre de la zona</h1>
+      <h1>Registrar el centro de trabajo</h1>
     </div>
     <div class="col-sm-6">
       <ol class="breadcrumb float-sm-right">
        <li class="breadcrumb-item"><a href="#">Inicio</a></li>
-       <li class="breadcrumb-item active">Zona</li>
+       <li class="breadcrumb-item active">Centro</li>
      </ol>
    </div>
  </div>

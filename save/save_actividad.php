@@ -24,3 +24,36 @@ $query =  $conn->query("SELECT * FROM `actividad` WHERE `nombre_actividad` = '$n
 	}
 }
  ?>
+  <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <script type="text/javascript">
+  function eliminar(id_zona) {
+    console.log(id_zona);
+    swal({
+      title: "Esta seguro de Eliminar?",
+      text: "Una vez eliminado no se prodra restablecer!",
+      icon: "warning",
+      buttons: true,
+      dangerMode: true,
+    })
+    .then((OK) => {
+      if (OK) {
+        $.ajax({
+         url:"../../delete/eliminar_zona.php?del=" + id_zona,
+         success: function(res) {
+          console.log(res);
+        },      
+      });
+        swal("Poof! Registro eliminado!", {
+          icon: "success",
+        }).then((ok)=>{
+          if(ok){
+            location.href="../zona/index.php";
+          }
+        });
+      } 
+    });
+  }
+</script>

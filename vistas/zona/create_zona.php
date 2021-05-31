@@ -9,7 +9,7 @@ include('head.php');
    <div class="container-fluid">
     <div class="row mb-2">
      <div class="col-sm-6">
-      <h1>Capturar nombre de la zona</h1>
+      <h1>Registrar nueva zona</h1>
     </div>
     <div class="col-sm-6">
       <ol class="breadcrumb float-sm-right">
@@ -47,7 +47,7 @@ include('head.php');
         </select>
         <div class="form-group">
           <label for="exampleInputEmail1">N° de zona</label>
-          <input type="text" name="numero_zona" class="form-control" id="exampleInputEmail1" placeholder="Escribe n° de zona">
+          <input type="text" name="numero_zona" class="form-control" id="exampleInputEmail1" placeholder="N° de zona">
         </div>
         <div class="form-group">
           <label for="exampleInputEmail1">Nombre de zona</label>
