@@ -1,6 +1,7 @@
 <?php
-require_once '../connect/conexion.php';
-include('head.php');
+require_once '../../connect/conexion.php';
+include('../layout/head.php');
+
 
 $quey = $conn->query("SELECT * FROM `organismo` WHERE `id_organismo` = '$_REQUEST[id_organismo]'") or die(mysqli_error());
 $fila = $quey->fetch_array();

@@ -1,6 +1,6 @@
 <?php
-require_once '../connect/conexion.php';
-include('head.php');
+require_once '../../connect/conexion.php';
+include('../layout/head.php');
 
 $quey = $conn->query("SELECT * FROM `miembro` WHERE `idmiembros` = '$_REQUEST[idmiembros]'") or die(mysqli_error());
 $fila = $quey->fetch_array();
@@ -90,5 +90,5 @@ $fila = $quey->fetch_array();
 </div>
 <!-- /.content-wrapper -->
 <?php 
-include('foot.php');
+include('../layout/foot.php');
 ?>

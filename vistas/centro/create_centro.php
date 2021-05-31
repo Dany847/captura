@@ -1,6 +1,6 @@
-<?php 
-require_once '../connect/conexion.php';
-include('head.php');
+<?php
+require_once '../../connect/conexion.php';
+include('../layout/head.php');
 ?>
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
@@ -30,7 +30,7 @@ include('head.php');
     <div class="card">
      <!-- /.card-header -->
      <div class="card-body">
-      <form action="../save/save_centro.php" method="POST">
+      <form action="../../save/save_centro.php" method="POST">
         <div class="card-body">
           <select name="id_zona" class="form-control">
             <option selected="selected" disabled="disabled">Seleccione una opción
@@ -81,5 +81,5 @@ include('head.php');
 </div>
 <!-- /.content-wrapper -->
 <?php 
-include('foot.php');
+include('../layout/foot.php');
 ?>
