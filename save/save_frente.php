@@ -7,13 +7,13 @@ $nombre_frente = $_POST['nombre_frente'];
 	if ($q == 1) {
 		echo ' <script type="text/javascript">
  	alert("Nombre del frente ya existe");
- 	window.location = "../vistas/frente.php";
+ 	window.location = "../vistas/frente/index.php";
  </script>';
 	}else{
   $conn->query("INSERT INTO `frente` VALUES('', '$nombre_frente')") or die(mysql_error());
 		echo ' <script type="text/javascript">
  	alert("Datos Guardados Exitosamente");
- 	window.location = "../vistas/frente.php";
+ 	window.location = "../vistas/frente/index.php";
  </script>';
 	}
 }

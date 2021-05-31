@@ -1,6 +1,6 @@
 <?php 
 require_once '../connect/conexion.php';
-include('layout/head.php');
+include('head.php');
 ?>
 
 <!-- Content Wrapper. Contains page content -->
@@ -15,5 +15,5 @@ include('layout/head.php');
 </section>
 </div>
 <?php 
-include('../foot.php');
+include('foot.php');
 ?>

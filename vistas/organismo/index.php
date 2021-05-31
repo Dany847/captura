@@ -1,6 +1,6 @@
 <?php
 require_once '../../connect/conexion.php';
-include('../layout/head.php');
+include('head.php');
 ?>
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
@@ -67,10 +67,10 @@ include('../layout/head.php');
         <td><?php echo $fila['apellido_paterno']; ?></td>
         <td><?php echo $fila['apellido_materno']; ?></td>
         <td style="text-align: center; width: 200px;" >
-                      <a onclick="preguntar(<?php echo $fila['id_organismo']?>)"><img src="img/boton-x.png"  width="20" height="20" border=0/> </a>
+                      <a onclick="preguntar(<?php echo $fila['id_organismo']?>)"><img src="../img/boton-x.png"  width="20" height="20" border=0/> </a>
 
                       &nbsp; &nbsp; &nbsp;
-                      <?php echo "<a href='up_organismo.php?id_organismo=".$fila['id_organismo']."'> <img src='img/boton-editar.png'  width='20' height='20' border=0/> </a>"; ?>
+                      <?php echo "<a href='up_organismo.php?id_organismo=".$fila['id_organismo']."'> <img src='../img/boton-editar.png'  width='20' height='20' border=0/> </a>"; ?>
                     </td>
     </tr>
     <?php
@@ -93,5 +93,5 @@ include('../layout/head.php');
 </div>
 <!-- /.content-wrapper -->
 <?php 
-include('../layout/foot.php');
+include('foot.php');
 ?>

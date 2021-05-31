@@ -15,14 +15,14 @@ $query =  $conn->query("SELECT * FROM `miembro` WHERE `nombre` = '$nombre' && `a
 	if ($q == 1) {
 		echo ' <script type="text/javascript">
  	alert("Nombre del miembro ya existe");
- 	window.location = "../vistas/miembro.php";
+ 	window.location = "../vistas/miembro/index.php";
  </script>';
  
 	}else{
  $conn->query("INSERT INTO `miembro` VALUES('', '$id_organismo', '$id_nivel', '$id_frente', '$nombre', '$apellido_paterno', '$apellido_materno', '$facebook_link', '$twitter_link')") or die(mysql_error());
 		echo ' <script type="text/javascript">
  	alert("Datos Guardados Exitosamente");
- 	window.location = "../vistas/miembro.php";
+ 	window.location = "../vistas/miembro/index.php";
  </script>';
 	}
 }

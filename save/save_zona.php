@@ -14,13 +14,13 @@ $apellido_materno = $_POST['apellido_materno'];
 	if ($q == 1) {
 		echo ' <script type="text/javascript">
  	alert("Nombre del zona ya existe");
- 	window.location = "../vistas/zona.php";
+ 	window.location = "../vistas/zona/index.php";
  </script>';
 	}else{
   $conn->query("INSERT INTO `zona` VALUES('', '$id_nivel', '$numero_zona', '$nombre_zona', '$nombre_responsable', '$apellido_paterno', '$apellido_materno')") or die(mysql_error());
 		echo ' <script type="text/javascript">
  	alert("Datos Guardados Exitosamente");
- 	window.location = "../vistas/zona.php";
+ 	window.location = "../vistas/zona/index.php";
  </script>';
 	}
 }

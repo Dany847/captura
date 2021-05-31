@@ -2,23 +2,17 @@
 	require_once '../connect/conexion.php';
 	if (ISSET($_POST['editar'])) {
 
-		$id_zona = $_POST['id_zona'];
-		$nombre_org = $_POST['nombre_org'];
-		$responsable = $_POST['responsable'];
+		$id_frente = $_POST['id_frente'];
+		$id_centro = $_POST['id_centro'];
+		$nombre_organismo = $_POST['nombre_organismo'];
+		$nombre_responsable = $_POST['nombre_responsable'];
+		$apellido_paterno = $_POST['apellido_paterno'];
+		$apellido_materno = $_POST['apellido_materno'];
 
-		$query =  $conn->query("SELECT * FROM `organismo` WHERE `nombre_org` = '$nombre_org' && `responsable` = '$responsable'") or die(mysql_error());
-		$q = $query->num_rows;
-		if ($q == 1) {
-			echo ' <script type="text/javascript">
-			alert("Organismo ya existe");
-			window.location = "../vistas/organismo.php";
-			</script>';
-		}else{
-			$conn->query("UPDATE `organismo` SET `id_zona` = '$id_zona', `nombre_org` = '$nombre_org', `responsable` = '$responsable' WHERE `id_organismo` = '$_REQUEST[id_organismo]' ") or die(mysql_error());
+			$conn->query("UPDATE `organismo` SET `id_frente` = '$id_frente', `id_centro` = '$id_centro', `nombre_organismo` = '$nombre_organismo', `nombre_responsable` = '$nombre_responsable', `apellido_paterno` = '$apellido_paterno', `apellido_materno` = '$apellido_materno' WHERE `id_organismo` = '$_REQUEST[id_organismo]' ") or die(mysql_error());
 			echo ' <script type="text/javascript">
 			alert("Datos Actualizado Exitosamente");
-			window.location = "../vistas/organismo.php";
+			window.location = "../vistas/organismo/index.php";
 			</script>';
-		}
 	}
 ?>

@@ -1,6 +1,6 @@
 <?php
 require_once '../../connect/conexion.php';
-include('../layout/head.php');
+include('head.php');
 
 
 $quey = $conn->query("SELECT * FROM `organismo` WHERE `id_organismo` = '$_REQUEST[id_organismo]'") or die(mysqli_error());
@@ -35,32 +35,62 @@ $fila = $quey->fetch_array();
                     <div class="card">
                         <!-- /.card-header -->
                         <div class="card-body">
-                            <form action="../update/edit_organismo.php?id_organismo=<?php echo $fila['id_organismo'] ?>" method="POST">
+                            <form action="../../update/edit_organismo.php?id_organismo=<?php echo $fila['id_organismo'] ?>" method="POST">
                                 <div class="card-body">
                                   <div class="form-group">
-                                    <label for="exampleInputEmail1">Nombre de Sector</label>
-                                    <input type="text" name="nombre_org" class="form-control" id="exampleInputEmail1" value="<?php echo $fila['nombre_org'] ?>">
+                                    <label for="exampleInputEmail1">Nombre organismo</label>
+                                    <input type="text" name="nombre_organismo" class="form-control" id="exampleInputEmail1" value="<?php echo $fila['nombre_organismo'] ?>">
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleInputEmail1">Responsable</label>
-                                    <input type="text" name="responsable" class="form-control" id="exampleInputEmail1" value="<?php echo $fila['responsable'] ?>">
+                                    <input type="text" name="nombre_responsable" class="form-control" id="exampleInputEmail1" value="<?php echo $fila['nombre_responsable'] ?>">
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputEmail1">Apellido paterno</label>
+                                    <input type="text" name="apellido_paterno" class="form-control" id="exampleInputEmail1" value="<?php echo $fila['apellido_paterno'] ?>">
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputEmail1">Apellido materno</label>
+                                    <input type="text" name="apellido_materno" class="form-control" id="exampleInputEmail1" value="<?php echo $fila['apellido_materno'] ?>">
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleInputEmail1">Zona</label>
-                                    <select name="id_zona" class="form-control">
+                                    <select name="id_frente" class="form-control">
                                      <?php
-                                     $query = $conn->query("SELECT * FROM `zonas`") or die(mysqli_error());
+                                     $query = $conn->query("SELECT * FROM `frente`") or die(mysqli_error());
                                      while($fzona = $query->fetch_array()){
 
-                                        if($fzona['id_zona']==$fila['id_zona']){ ?>
+                                        if($fzona['id_frente']==$fila['id_frente']){ ?>
 
-                                            <option value = "<?php echo $fzona['id_zona']?>" selected><?php echo $fzona['nombre']?></option>
+                                            <option value = "<?php echo $fzona['id_frente']?>" selected><?php echo $fzona['nombre_frente']?></option>
                                             <?php
 
                                         } else { 
 
                                             ?>
-                                            <option value = "<?php echo $fzona['id_zona']?>"><?php echo $fzona['nombre']?></option>
+                                            <option value = "<?php echo $fzona['id_frente']?>"><?php echo $fzona['nombre_frente']?></option>
+                                            <?php
+                                        }
+                                    }
+                                    ?>
+                                </select>
+                            </div>
+                             <div class="form-group">
+                                    <label for="exampleInputEmail1">Zona</label>
+                                    <select name="id_centro" class="form-control">
+                                     <?php
+                                     $query = $conn->query("SELECT * FROM `centro_trabajo`") or die(mysqli_error());
+                                     while($fzona = $query->fetch_array()){
+
+                                        if($fzona['id_centro']==$fila['id_centro']){ ?>
+
+                                            <option value = "<?php echo $fzona['id_centro']?>" selected><?php echo $fzona['nombre_centro']?></option>
+                                            <?php
+
+                                        } else { 
+
+                                            ?>
+                                            <option value = "<?php echo $fzona['id_centro']?>"><?php echo $fzona['nombre_centro']?></option>
                                             <?php
                                         }
                                     }

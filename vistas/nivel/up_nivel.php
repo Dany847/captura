@@ -1,7 +1,11 @@
 <?php
 require_once '../../connect/conexion.php';
 include('head.php');
+
+$quey = $conn->query("SELECT * FROM `nivel` WHERE `id_nivel` = '$_REQUEST[id_nivel]'") or die(mysqli_error());
+$fila = $quey->fetch_array();
 ?>
+
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
   <!-- Content Header (Page header) -->
@@ -9,12 +13,12 @@ include('head.php');
    <div class="container-fluid">
     <div class="row mb-2">
      <div class="col-sm-6">
-      <h1>Capturar Actividades</h1>
+      <h1>Capturar nombre de la nivel</h1>
    </div>
    <div class="col-sm-6">
       <ol class="breadcrumb float-sm-right">
        <li class="breadcrumb-item"><a href="#">Inicio</a></li>
-       <li class="breadcrumb-item active">Actividad</li>
+       <li class="breadcrumb-item active">Zona</li>
     </ol>
  </div>
 </div>
@@ -30,27 +34,19 @@ include('head.php');
       <div class="card">
      <!-- /.card-header -->
      <div class="card-body">
-        <form action="../../save/save_actividad.php" method="POST">
+        <form action="../../update/edit_nivel.php?id_nivel=<?php echo $fila['id_nivel'] ?>" method="POST">
                 <div class="card-body">
                   <div class="form-group">
-                    <label for="exampleInputEmail1">Nombre de actividad</label>
-                    <input type="text" name="nombre_actividad" class="form-control" id="exampleInputEmail1" placeholder="Nombre de actividad">
+                    <label for="exampleInputEmail1">Nivel</label>
+                    <input type="text" name="nombre_nivel" class="form-control" id="exampleInputEmail1" value="<?php echo $fila['nombre_nivel'] ?>">
                   </div>
                   <div class="form-group">
-                    <label for="exampleInputEmail1">Facebook</label>
-                    <input type="text" name="url_facebook" class="form-control" id="exampleInputEmail1" placeholder="Url de Facebook">
-                  </div>
-                  <div class="form-group">
-                    <label for="exampleInputEmail1">Twitter</label>
-                    <input type="text" name="url_twitter" class="form-control" id="exampleInputEmail1" placeholder="Url de Twitter">
-                  </div>
-                  <div class="form-group">
-                    <label for="exampleInputEmail1">Fecha</label>
-                    <input type="date" name="fecha" class="form-control" id="exampleInputEmail1">
+                    <label for="exampleInputEmail1">Nombre abreviado</label>
+                    <input type="text" name="abrev_nivel" class="form-control" id="exampleInputEmail1" value="<?php echo $fila['abrev_nivel'] ?>">
                   </div>
                 </div>
                 <div class="card-footer">
-                  <button type="submit" class="btn btn-primary" name="guardar">Guardar</button>
+                  <button type="submit" class="btn btn-primary" name="editar">Guardar</button>
                 </div>
               </form>
 </div>

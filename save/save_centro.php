@@ -11,13 +11,13 @@ $apellido_materno = $_POST['apellido_materno'];
 	if ($q == 1) {
 		echo ' <script type="text/javascript">
  	alert("Nombre del centro ya existe");
- 	window.location = "../vistas/centro.php";
+ 	window.location = "../vistas/centro/index.php";
  </script>';
 	}else{
   $conn->query("INSERT INTO `centro_trabajo` VALUES('', '$id_zona', '$nombre_centro', '$nombre_responsable', '$apellido_paterno', '$apellido_materno')") or die(mysql_error());
 		echo ' <script type="text/javascript">
  	alert("Datos Guardados Exitosamente");
- 	window.location = "../vistas/centro.php";
+ 	window.location = "../vistas/centro/index.php";
  </script>';
 	}
 }

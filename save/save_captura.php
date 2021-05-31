@@ -12,14 +12,14 @@ $query =  $conn->query("SELECT * FROM `captura` WHERE `id_actividad` = '$id_acti
 	if ($q == 1) {
 		echo ' <script type="text/javascript">
  	alert("Nombre del captura ya existe");
- 	window.location = "../vistas/captura.php";
+ 	window.location = "../vistas/captura/index.php";
  </script>';
  
 	}else{
  $conn->query("INSERT INTO `captura` VALUES('', '$id_miembro', '$id_actividad', '$url_cfacebook', '$url_ctwitter' 'created_at')") or die(mysql_error());
 		echo ' <script type="text/javascript">
  	alert("Datos Guardados Exitosamente");
- 	window.location = "../vistas/captura.php";
+ 	window.location = "../vistas/captura/index.php";
  </script>';
 	}
 }
