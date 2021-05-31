@@ -48,19 +48,60 @@ include('head.php');
                                       </select>
                                   </div>
                                   <div class="form-group">
+                                        <label for="exampleInputEmail1">Nivel</label>
+                                        <select name="id_nivel" class="form-control">
+                                            <option selected="selected" disabled="disabled">Seleccione una opción
+                                            </option>
+                                            <?php
+                                            $query = $conn->query("SELECT * FROM `nivel` ORDER BY `nombre_nivel`") or die(mysqli_error());
+                                            while($fila = $query->fetch_array()){
+                                              ?>
+                                              <option value="<?php echo $fila['id_nivel']?>"><?php echo $fila['nombre_nivel']?></option>
+                                              <?php
+                                          }
+                                          ?>
+                                      </select>
+                                  </div>
+                                  <div class="form-group">
+                                        <label for="exampleInputEmail1">Frente</label>
+                                        <select name="id_frente" class="form-control">
+                                            <option selected="selected" disabled="disabled">Seleccione una opción
+                                            </option>
+                                            <?php
+                                            $query = $conn->query("SELECT * FROM `frente` ORDER BY `nombre_frente`") or die(mysqli_error());
+                                            while($fila = $query->fetch_array()){
+                                              ?>
+                                              <option value="<?php echo $fila['id_frente']?>"><?php echo $fila['nombre_frente']?></option>
+                                              <?php
+                                          }
+                                          ?>
+                                      </select>
+                                  </div>
+                                  
+                                  <div class="form-group">
                                     <label for="exampleInputEmail1">Nombre</label>
-                                    <input type="text" name="nombremiembro" class="form-control"
+                                    <input type="text" name="nombre" class="form-control"
                                     id="exampleInputEmail1" placeholder="Escribe un nombre">
                                 </div>
                                 <div class="form-group">
-                                    <label for="exampleInputEmail1">facebook</label>
-                                    <input type="text" name="c_facebook" class="form-control"
-                                    id="exampleInputEmail1" placeholder="Escribe un facebook">
+                                    <label for="exampleInputEmail1">Apellido paterno</label>
+                                    <input type="text" name="apellido_paterno" class="form-control"
+                                    id="exampleInputEmail1" placeholder="Apellido paterno">
                                 </div>
                                 <div class="form-group">
-                                    <label for="exampleInputEmail1">Twitter</label>
-                                    <input type="text" name="c_twitter" class="form-control"
-                                    id="exampleInputEmail1" placeholder="Escribe un twitter">
+                                    <label for="exampleInputEmail1">Apellido materno</label>
+                                    <input type="text" name="apellido_materno" class="form-control"
+                                    id="exampleInputEmail1" placeholder="apellido materno">
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputEmail1">Link de facebook</label>
+                                    <input type="text" name="facebook_link" class="form-control"
+                                    id="exampleInputEmail1" placeholder="Link de Facebook">
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputEmail1">Link de Twitter</label>
+                                    <input type="text" name="twitter_link" class="form-control"
+                                    id="exampleInputEmail1" placeholder="link de Twitter">
                                 </div>
                             </div>
                             <div class="card-footer">
