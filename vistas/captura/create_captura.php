@@ -1,79 +1,73 @@
+<!DOCTYPE html>
+<html>
 <?php
-require_once '../../connect/conexion.php';
-include('head.php');
+  require_once '../../connect/conexion.php';
+  include('head.php');
 ?>
-<!-- Content Wrapper. Contains page content -->
-<div class="content-wrapper">
-    <!-- Content Header (Page header) -->
-    <section class="content-header">
-        <div class="container-fluid">
-            <div class="row mb-2">
-                <div class="col-sm-6">
-                    <h1>Datos de Captura</h1>
-                </div>
-                <div class="col-sm-6">
-                    <ol class="breadcrumb float-sm-right">
-                        <li class="breadcrumb-item"><a href="#">Inicio</a></li>
-                        <li class="breadcrumb-item active">Captura</li>
-                    </ol>
-                </div>
+
+<body class="theme-red ls-closed">
+  <?php
+    include('header.php');
+  ?>
+  <section class="content">
+    <div class="container-fluid">
+      <div class="row clearfix">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+          <div class="card">
+            <div class="header">
+              Registrar captura
+
             </div>
-        </div><!-- /.container-fluid -->
-    </section>
+            <div class="body">
 
-    <!-- Main content -->
-    <section class="content">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-12">
-
-                    <div class="card">
-                        <div class="card-header">
-                            <a href="create_captura.php">
-                                <button type="submit" class="btn btn-primary">Nuevo</button>
-                            </a>
-                        </div>
-                        <!-- /.card-header -->
-                        <div class="card-body">
-                            <table id="example1" class="table table-bordered table-striped">
-                                <thead>
-                                    <tr>
-                                        <th>Persona</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-
-                                    <?php
-                                $query = $conn->query("SELECT * FROM `actividad` ORDER BY `nombre`") or die(mysqli_error());
-								while($fila = $query->fetch_array()){
-                               ?> <tr>
-                                        <td width="300px">
-                                            <?php
-												echo ' <input type = "checkbox" name = "id_actividad[]" value = "'.$fila['id_actividad'].'"></center>
-												';	
-                                                echo $fila['nombre'];
-                                ?>
-                                        </td>
-                                        <?php
-                                            }
-											?>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                        <!-- /.card-body -->
+              <form>
+                <div class="row clearfix">
+                  <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6">
+                    <div class="form-group form-float">
+                      <div class="form-line">
+                        <input type="text" class="form-control" id="buscarActividad">
+                        <label class="form-label">Buscar actividad para registrar</label>
+                      </div>
                     </div>
-                    <!-- /.card -->
+                  </div>
+                  <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
+                    <button type="button" class="btn btn-primary btn-lg m-l-15 waves-effect">Buscar</button>
+                  </div>
                 </div>
-                <!-- /.col -->
+              </form>
+
             </div>
-            <!-- /.row -->
+          </div>
         </div>
-        <!-- /.container-fluid -->
-    </section>
-    <!-- /.content -->
-</div>
-<!-- /.content-wrapper -->
-<?php 
-include('foot.php');
-?>
+      </div>
+    </div>
+    <?php
+      include('foot.php');
+    ?>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+
+
+    <script type="text/javascript">
+
+      $( function() {
+        var availableTags = [
+        "ActionScript",
+        "AppleScript",
+        "Asp",
+        "BASIC",
+        "C",
+        "C++",
+        "Clojure",
+        ];
+        $( "#buscarActividad" ).autocomplete({
+          source: availableTags
+        });
+      } );
+
+    </script>
+
+
+  </body>
+
+
+</script>
