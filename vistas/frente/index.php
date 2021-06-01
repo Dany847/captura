@@ -36,10 +36,15 @@ include('head.php');
                <td><?php echo $contar; ?></td>
                <td><?php echo $fila['nombre_frente']; ?></td>
                <td style="text-align: center; width: 200px;" >
-                <a onclick="eliminar(<?php echo $fila['id_frente']?>)"><img src="../img/boton-x.png"  width="20" height="20" border=0/> </a>
+
+                <a onclick="eliminar(<?php echo $fila['id_frente']?>)"><button type="button" class="btn bg-red btn-xs waves-effect" style="border-radius: 100px; ">
+                <i class="material-icons">delete_forever</i>
+              </button></a>
 
                 &nbsp; &nbsp; &nbsp;
-                <?php echo "<a href='up_frente.php?id_frente=".$fila['id_frente']."'> <img src='../img/boton-editar.png'  width='20' height='20' border=0/> </a>"; ?>
+                <?php echo "<a href='up_frente.php?id_frente=".$fila['id_frente']."'> <button type='button' class='btn bg-light-green btn-xs waves-effect' style='border-radius: 100px;'>
+                <i class='material-icons'>border_color</i>
+             </button> </a>"; ?>
               </td>
             </tr>
             <?php
