@@ -1,10 +1,8 @@
 <footer>
    <!-- Jquery Core Js -->
-<script src="../plugins/jquery/jquery.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 <!-- Bootstrap Core Js -->
 <script src="../plugins/bootstrap/js/bootstrap.js"></script>
-<!-- Select Plugin Js -->
-<script src="..../plugins/bootstrap-select/js/bootstrap-select.js"></script>
 <!-- Slimscroll Plugin Js -->
 <script src="../plugins/jquery-slimscroll/jquery.slimscroll.js"></script>
 <!-- Bootstrap Colorpicker Js -->
@@ -26,7 +24,6 @@
 
 <script src="../js/demo.js"></script>
 <script src="../plugins/jquery-datatable/jquery.dataTables.js"></script>
-<script src="../plugins/jquery-datatable/skin/bootstrap/js/dataTables.bootstrap.js"></script>
 <script src="../plugins/jquery-datatable/extensions/export/dataTables.buttons.min.js"></script>
 <script src="../plugins/jquery-datatable/extensions/export/buttons.flash.min.js"></script>
 <script src="../plugins/jquery-datatable/extensions/export/jszip.min.js"></script>
@@ -42,7 +39,6 @@
 
 
 <script src="../js/admin.js"></script>
-<script src="../js/pages/forms/advanced-form-elements.js"></script>
 <!-- Demo Js -->
 </footer>
-</html>
+
