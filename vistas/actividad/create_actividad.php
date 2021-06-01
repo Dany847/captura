@@ -1,72 +1,59 @@
+<!DOCTYPE html>
+<html>
 <?php
 require_once '../../connect/conexion.php';
 include('head.php');
 ?>
-<!-- Content Wrapper. Contains page content -->
-<div class="content-wrapper">
-  <!-- Content Header (Page header) -->
-  <section class="content-header">
-   <div class="container-fluid">
-    <div class="row mb-2">
-     <div class="col-sm-6">
-      <h1>Programar Actividades</h1>
-   </div>
-   <div class="col-sm-6">
-      <ol class="breadcrumb float-sm-right">
-       <li class="breadcrumb-item"><a href="#">Inicio</a></li>
-       <li class="breadcrumb-item active">Actividad</li>
-    </ol>
- </div>
-</div>
-</div><!-- /.container-fluid -->
-</section>
-
-<!-- Main content -->
-<section class="content">
-   <div class="container-fluid">
-    <div class="row">
-     <div class="col-12">
-
-      <div class="card">
-     <!-- /.card-header -->
-     <div class="card-body">
-        <form action="../../save/save_actividad.php" method="POST">
-                <div class="card-body">
-                  <div class="form-group">
-                    <label for="exampleInputEmail1">Nombre de actividad</label>
-                    <input type="text" name="nombre_actividad" class="form-control" id="exampleInputEmail1" placeholder="Nombre de actividad">
+<body class="theme-red ls-closed">
+  <?php
+  include('header.php');
+  ?>
+  <section class="content">
+    <div class="container-fluid">
+      <div class="row clearfix">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+          <div class="card">
+            <div class="header">
+              <h2>AGREGAR UNA NUEVA ACTIVIDAD</h2>
+            </div>
+            <div class="body">
+              <form id="form_advanced_validation" action="../../save/save_actividad.php" method="POST">
+                <div class="form-group form-float">
+                  <div class="form-line">
+                    <input type="text" class="form-control" name="nombre_actividad" min="10" max="200" required>
+                    <label class="form-label">Min/Max Value</label>
                   </div>
-                  <div class="form-group">
-                    <label for="exampleInputEmail1">Facebook</label>
-                    <input type="text" name="url_facebook" class="form-control" id="exampleInputEmail1" placeholder="Url de Facebook">
-                  </div>
-                  <div class="form-group">
-                    <label for="exampleInputEmail1">Twitter</label>
-                    <input type="text" name="url_twitter" class="form-control" id="exampleInputEmail1" placeholder="Url de Twitter">
-                  </div>
-                  <div class="form-group">
-                    <label for="exampleInputEmail1">Fecha</label>
-                    <input type="date" name="fecha" class="form-control" id="exampleInputEmail1">
-                  </div>
+                  <div class="help-info">Min. Value: 10, Max. Value: 200</div>
                 </div>
-                <div class="card-footer">
-                  <button type="submit" class="btn btn-primary" name="guardar">Guardar</button>
+                <div class="form-group form-float">
+                  <div class="form-line">
+                    <input type="url" class="form-control" name="url_facebook" required>
+                    <label class="form-label">Url de Facebook</label>
+                  </div>
+                  <div class="help-info">Starts with http://, https://, ftp:// etc</div>
                 </div>
+                <div class="form-group form-float">
+                  <div class="form-line">
+                    <input type="url" class="form-control" name="url_twitter" required>
+                    <label class="form-label">Url de Twitter</label>
+                  </div>
+                  <div class="help-info">Starts with http://, https://, ftp:// etc</div>
+                </div>
+                <div class="form-group form-float">
+                  <div class="form-line">
+                    <input type="date" class="form-control" name="date" required>
+                  </div>
+                  <div class="help-info">YYYY-MM-DD format</div>
+                </div>
+                <button class="btn btn-primary waves-effect" type="submit" name="guardar">GUARDAR</button>
               </form>
-</div>
-<!-- /.card-body -->
-</div>
-<!-- /.card -->
-</div>
-<!-- /.col -->
-</div>
-<!-- /.row -->
-</div>
-<!-- /.container-fluid -->
-</section>
-<!-- /.content -->
-</div>
-<!-- /.content-wrapper -->
-<?php 
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+<?php
 include('foot.php');
 ?>

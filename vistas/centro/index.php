@@ -1,42 +1,24 @@
+<!DOCTYPE html>
+<html>
 <?php
 require_once '../../connect/conexion.php';
 include('head.php');
 ?>
-<!-- Content Wrapper. Contains page content -->
-<div class="content-wrapper">
-    <!-- Content Header (Page header) -->
-    <section class="content-header">
-        <div class="container-fluid">
-            <div class="row mb-2">
-                <div class="col-sm-6">
-                    <h1>Centro de trabajo</h1>
-                </div>
-                <div class="col-sm-6">
-                    <ol class="breadcrumb float-sm-right">
-                        <li class="breadcrumb-item"><a href="#">Inicio</a></li>
-                        <li class="breadcrumb-item active">Centro</li>
-                    </ol>
-                </div>
-            </div>
-        </div><!-- /.container-fluid -->
-    </section>
-
- <!-- Main content -->
- <section class="content">
-   <div class="container-fluid">
-     <div class="row">
-       <div class="col-12">
-
-         <div class="card">
-           <div class="card-header">
-             <a href="create_centro.php">
-              <button type="submit" class="btn btn-primary">Nuevo</button>     
-            </a>
-          </div>
-          <!-- /.card-header -->
-          <div class="card-body">
-           <table id="example1" class="table table-bordered table-striped">
-             <thead>
+<!-- JQuery DataTable Css -->
+<link href="../plugins/jquery-datatable/skin/bootstrap/css/dataTables.bootstrap.css" rel="stylesheet">
+<body class="theme-red ls-closed">
+  <?php
+  include('header.php');
+  ?>
+  <section class="content">
+    <div class="container-fluid">
+      <div class="row clearfix">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+          <div class="card">
+            <div class="body">
+            <div class="table-responsive">
+              <table id="example1" class="table table-bordered table-striped table-hover js-basic-example dataTable">
+               <thead>
               <tr>
                 <th>N°</th>
                 <th>Zona</th>
@@ -75,28 +57,16 @@ include('head.php');
           ?>
         </tbody>
       </table>
+      </div>
+      </div>
     </div>
-    <!-- /.card-body -->
   </div>
-  <!-- /.card -->
 </div>
-<!-- /.col -->
 </div>
-<!-- /.row -->
-</div>
-<!-- /.container-fluid -->
-</section>
-<!-- /.content -->
-</div>
-<!-- /.content-wrapper -->
-<?php 
+</body>
+<?php
 include('foot.php');
 ?>
-   <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
-  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-
   <script type="text/javascript">
   function eliminar(id_centro) {
     console.log(id_centro);

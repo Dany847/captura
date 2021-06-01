@@ -1,89 +1,84 @@
 <?php
 require_once '../../connect/conexion.php';
+?>
+<!DOCTYPE html>
+<html>
+<?php
 include('head.php');
 ?>
-<!-- Content Wrapper. Contains page content -->
-<div class="content-wrapper">
-  <!-- Content Header (Page header) -->
-  <section class="content-header">
-   <div class="container-fluid">
-    <div class="row mb-2">
-     <div class="col-sm-6">
-      <h1>Registrar nueva zona</h1>
+<body class="theme-red ls-closed">
+  <?php
+  include('header.php');
+  ?>
+  <section class="content">
+    <div class="container-fluid">
+      <div class="row clearfix">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+          <div class="card">
+            <div class="header">
+              <h2>AGREGAR ZONA</h2>
+            </div>
+            <div class="body">
+              <form id="form_advanced_validation" action="../../save/save_zona.php" method="POST">
+                <div class="form-group form-float">
+                  <div class="form-line">
+                    <input type="text" class="form-control" name="numero_zona" min="3" max="15" required>
+                    <label class="form-label">Nombre del centro</label>
+                  </div>
+                  <div class="help-info">Nombre de centro: 3, Max. Value: 15</div>
+                </div>
+                <div class="form-group form-float">
+                  <div class="form-line">
+                    <input type="text" class="form-control" name="nombre_zona" min="3" max="40" required>
+                    <label class="form-label">Nombre del centro</label>
+                  </div>
+                  <div class="help-info">Nombre de centro: 3, Max. Value: 40</div>
+                </div>
+                <div class="form-group form-float">
+                  <div class="form-line">
+                    <input type="text" class="form-control" name="nombre_responsable" min="3" max="50" required>
+                    <label class="form-label">Responsable</label>
+                  </div>
+                  <div class="help-info">Juan: 3, Max. Value: 50</div>
+                </div>
+                <div class="form-group form-float">
+                  <div class="form-line">
+                    <input type="text" class="form-control" name="apellido_paterno" min="3" max="40" required>
+                    <label class="form-label">Apellido paterno</label>
+                  </div>
+                  <div class="help-info">Pérez: 3, Max. Value: 40</div>
+                </div>
+                <div class="form-group form-float">
+                  <div class="form-line">
+                    <input type="text" class="form-control" name="apellido_materno" min="3" max="40" required>
+                    <label class="form-label">Apellido materno</label>
+                  </div>
+                  <div class="help-info">Pérez: 3, Max. Value: 40</div>
+                </div>
+                <div class="form-group form-float">
+                  <div class="form-line">
+                    <select name="id_nivel" class="form-control show-tick">
+                      <option selected="selected" disabled="disabled">Seleccionar nivel</option>
+                      <?php
+                      $query = $conn->query("SELECT * FROM `nivel` ORDER BY `nombre_nivel`") or die(mysqli_error());
+                      while($fila = $query->fetch_array()){
+                        ?>
+                        <option value="<?php echo $fila['id_nivel']?>"><?php echo $fila['nombre_nivel']?></option>
+                        <?php
+                      }
+                      ?>
+                    </select>
+                  </div>
+                </div>
+                <button class="btn btn-primary waves-effect" type="submit" name="guardar">GUARDAR</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="col-sm-6">
-      <ol class="breadcrumb float-sm-right">
-       <li class="breadcrumb-item"><a href="#">Inicio</a></li>
-       <li class="breadcrumb-item active">Zona</li>
-     </ol>
-   </div>
- </div>
-</div><!-- /.container-fluid -->
-</section>
-
-<!-- Main content -->
-<section class="content">
- <div class="container-fluid">
-  <div class="row">
-   <div class="col-12">
-
-    <div class="card">
-     <!-- /.card-header -->
-     <div class="card-body">
-      <form action="../../save/save_zona.php" method="POST">
-        <div class="card-body">
-          <select name="id_nivel" class="form-control">
-            <option selected="selected" disabled="disabled">Seleccione una opción
-            </option>
-            <?php
-            $query = $conn->query("SELECT * FROM `nivel` ORDER BY `nombre_nivel`") or die(mysqli_error());
-            while($fila = $query->fetch_array()){
-              ?>
-              <option value="<?php echo $fila['id_nivel']?>"><?php echo $fila['nombre_nivel']?>
-            </option>
-            <?php
-          }
-          ?>
-        </select>
-        <div class="form-group">
-          <label for="exampleInputEmail1">N° de zona</label>
-          <input type="text" name="numero_zona" class="form-control" id="exampleInputEmail1" placeholder="N° de zona">
-        </div>
-        <div class="form-group">
-          <label for="exampleInputEmail1">Nombre de zona</label>
-          <input type="text" name="nombre_zona" class="form-control" id="exampleInputEmail1" placeholder="Nombre de zona">
-        </div>
-        <div class="form-group">
-          <label for="exampleInputEmail1">Responsable</label>
-          <input type="text" name="nombre_responsable" class="form-control" id="exampleInputEmail1" placeholder="Nombre del responsable">
-        </div>
-        <div class="form-group">
-          <label for="exampleInputEmail1">Apellido paterno</label>
-          <input type="text" name="apellido_paterno" class="form-control" id="exampleInputEmail1" placeholder="apellido paterno">
-        </div>
-        <div class="form-group">
-          <label for="exampleInputEmail1">Apellido materno</label>
-          <input type="text" name="apellido_materno" class="form-control" id="exampleInputEmail1" placeholder="Apelldo materno">
-        </div>
-      </div>
-      <div class="card-footer">
-        <button type="submit" class="btn btn-primary" name="guardar">Guardar</button>
-      </div>
-    </form>
   </div>
-  <!-- /.card-body -->
-</div>
-<!-- /.card -->
-</div>
-<!-- /.col -->
-</div>
-<!-- /.row -->
-</div>
-<!-- /.container-fluid -->
-</section>
-<!-- /.content -->
-</div>
-<!-- /.content-wrapper -->
-<?php 
+</body>
+<?php
 include('foot.php');
 ?>
