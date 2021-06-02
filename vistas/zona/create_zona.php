@@ -23,16 +23,16 @@ include('head.php');
                 <div class="form-group form-float">
                   <div class="form-line">
                     <input type="text" class="form-control" name="numero_zona" min="3" max="15" required>
-                    <label class="form-label">Nombre del centro</label>
+                    <label class="form-label">N° de Zona</label>
                   </div>
-                  <div class="help-info">Nombre de centro: 3, Max. Value: 15</div>
+                  <div class="help-info">N° de zona: 3, Max. Value: 15</div>
                 </div>
                 <div class="form-group form-float">
                   <div class="form-line">
                     <input type="text" class="form-control" name="nombre_zona" min="3" max="40" required>
-                    <label class="form-label">Nombre del centro</label>
+                    <label class="form-label">Nombre de zona</label>
                   </div>
-                  <div class="help-info">Nombre de centro: 3, Max. Value: 40</div>
+                  <div class="help-info">Nombre de zona: 3, Max. Value: 40</div>
                 </div>
                 <div class="form-group form-float">
                   <div class="form-line">

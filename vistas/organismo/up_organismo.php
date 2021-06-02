@@ -92,7 +92,7 @@ $fila = $quey->fetch_array();
 </div>
 <div class="form-group form-float">
   <div class="form-line">
-    <input type="url" class="form-control" name="apellido_materno" min="3" max="40" value="<?php echo $fila['apellido_materno'] ?>">
+    <input type="text" class="form-control" name="apellido_materno" min="3" max="40" value="<?php echo $fila['apellido_materno'] ?>">
     <label class="form-label">Apellido materno</label>
 </div>
 <div class="help-info">Apellido materno: 3, Max. Value: 40</div>

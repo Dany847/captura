@@ -41,7 +41,7 @@ include('head.php');
                 </div>
                 <div class="form-group form-float">
                   <div class="form-line">
-                    <input type="date" class="form-control" name="date" required>
+                    <input type="date" class="form-control" name="fecha" required>
                   </div>
                   <div class="help-info">YYYY-MM-DD format</div>
                 </div>

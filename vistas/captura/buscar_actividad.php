@@ -16,7 +16,6 @@ include('head.php');
           <div class="card">
             <div class="header">
               Buscar actividad para registrar captura
-
             </div>
             <div class="body">
 

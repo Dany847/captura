@@ -28,7 +28,7 @@ include('head.php');
                 <div class="form-group form-float">
                   <div class="form-line">
                     <input type="text" class="form-control" name="abrev_nivel" min="1" max="5" required>
-                    <label class="form-label">Act.</label>
+                    <label class="form-label">Abreviatura</label>
                   </div>
                   <div class="help-info">Abreviatura: 1, Max. Value: 5</div>
                 </div>
