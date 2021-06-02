@@ -164,9 +164,9 @@ if (isset($_GET["idActividad"]) && $_GET["idActividad"] != null) {
                                 $('.statusMsg').html('');
                                 if (msg == 'ok') {
                                     $('#registrarCaptura')[0].reset();
-                                    $('.statusMsg').html('<span style="font-size:18px;color:#34A853">Form data submitted successfully.</span>');
+                                    $('.statusMsg').html('<span style="font-size:18px;color:#34A853">La captura se guardo exitosamente.</span>');
                                 } else {
-                                    $('.statusMsg').html('<span style="font-size:18px;color:#EA4335">Some problem occurred, please try again.</span>');
+                                    $('.statusMsg').html('<span style="font-size:18px;color:#EA4335">Ocurrio algun error, intente de nuevo.</span>');
                                 }
                                 $('#registrarCaptura').css("opacity", "");
                                 $(".submitBtn").removeAttr("disabled");

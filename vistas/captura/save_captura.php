@@ -13,7 +13,7 @@ ini_set('error_log', 'errors.log'); // Logging file path
 
 
 if (!empty($_POST["miembroId"]) || !empty($_POST["actividadId"])) {
-    $uploadedFile = "";
+    $nomImgFacebbok = "";
     if (!empty($_FILES["facebookImg"]["type"])) {
 
         $fileName = time() . "_" . $_FILES["facebookImg"]["name"];
@@ -29,7 +29,28 @@ if (!empty($_POST["miembroId"]) || !empty($_POST["actividadId"])) {
             $sourcePath = $_FILES['facebookImg']['tmp_name'];
             $targetPath = "../capturas-img/" . $fileName;
             if (move_uploaded_file($sourcePath, $targetPath)) {
-                $uploadedFile = $fileName;
+                $nomImgFacebbok = $fileName;
+            }
+        }
+    }
+
+    $nomImgTwitter = "";
+    if (!empty($_FILES["twitterImg"]["type"])) {
+
+        $fileName = time() . "_" . $_FILES["twitterImg"]["name"];
+        $validExtensions = array("jpeg", "jpg", "png");
+        $temporal = explode(".", $_FILES["twitterImg"]["name"]);
+        $fileExtension = end($temporal);
+
+        if ((($_FILES["twitterImg"]["type"] == "image/png") ||
+                ($_FILES["twitterImg"]["type"] == "image/jpg") ||
+                ($_FILES["twitterImg"]["type"] == "image/jpeg")) &&
+            in_array($fileExtension, $validExtensions)
+        ) {
+            $sourcePath = $_FILES['twitterImg']['tmp_name'];
+            $targetPath = "../capturas-img/" . $fileName;
+            if (move_uploaded_file($sourcePath, $targetPath)) {
+                $nomImgTwitter = $fileName;
             }
         }
     }
@@ -40,7 +61,7 @@ if (!empty($_POST["miembroId"]) || !empty($_POST["actividadId"])) {
 
     $sql = "INSERT INTO 
     `captura` (`id_captura`, `id_miembro`, `id_actividad`, `url_cfacebook`, `url_ctwitter`) 
-    VALUES (NULL, '$miembroId', '$actividadId', '$uploadedFile', 'sd')";
+    VALUES (NULL, '$miembroId', '$actividadId', '$nomImgFacebbok', '$nomImgTwitter')";
 
     $conn = new mysqli('localhost', 'root', '', 'captura') or die("Error");
     if (!$conn) {
