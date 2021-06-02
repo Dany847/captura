@@ -43,7 +43,7 @@ $fila = $quey->fetch_array();
                 </div>
                 <div class="form-group form-float">
                   <div class="form-line">
-                    <input type="date" class="form-control" name="date" value="<?php echo $fila['fecha'] ?>">
+                    <input type="date" class="form-control" name="fecha" value="<?php echo $fila['fecha'] ?>">
                   </div>
                   <div class="help-info">YYYY-MM-DD format</div>
                 </div>

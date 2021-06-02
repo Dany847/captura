@@ -1,61 +1,60 @@
 <?php
 require_once '../../connect/conexion.php';
-include('head.php');
-
 $quey = $conn->query("SELECT * FROM `centro_trabajo` WHERE `id_centro` = '$_REQUEST[id_centro]'") or die(mysqli_error());
 $fila = $quey->fetch_array();
 ?>
-
-<!-- Content Wrapper. Contains page content -->
-<div class="content-wrapper">
-  <!-- Content Header (Page header) -->
-  <section class="content-header">
-   <div class="container-fluid">
-    <div class="row mb-2">
-     <div class="col-sm-6">
-      <h1>Actualizar datos de centro de trabajo</h1>
-   </div>
-   <div class="col-sm-6">
-      <ol class="breadcrumb float-sm-right">
-       <li class="breadcrumb-item"><a href="#">Inicio</a></li>
-       <li class="breadcrumb-item active">Centro</li>
-    </ol>
- </div>
-</div>
-</div><!-- /.container-fluid -->
-</section>
-
-<!-- Main content -->
-<section class="content">
-   <div class="container-fluid">
-    <div class="row">
-     <div class="col-12">
-
-      <div class="card">
-     <!-- /.card-header -->
-     <div class="card-body">
-        <form action="../../update/edit_centro.php?id_centro=<?php echo $fila['id_centro'] ?>" method="POST">
-                <div class="card-body">
-                  <div class="form-group">
-                    <label for="exampleInputEmail1">Centro</label>
-                    <input type="text" name="nombre_centro" class="form-control" id="exampleInputEmail1" value="<?php echo $fila['nombre_centro'] ?>">
+<!DOCTYPE html>
+<html>
+<?php
+include('head.php');
+?>
+<body class="theme-red ls-closed">
+  <?php
+  include('header.php');
+  ?>
+  <section class="content">
+    <div class="container-fluid">
+      <div class="row clearfix">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+          <div class="card">
+            <div class="header">
+              <h2>ACTUALIZAR DATOS DE CENTRO DE TRABAJO</h2>
+            </div>
+            <div class="body">
+              <form id="form_advanced_validation" action="../../update/edit_centro.php?id_centro=<?php echo $fila['id_centro'] ?>" method="POST">
+                <div class="form-group form-float">
+                  <div class="form-line">
+                    <input type="text" class="form-control" name="nombre_centro" min="10" max="200" value="<?php echo $fila['nombre_centro'] ?>">
+                    <label class="form-label">Nombre del centro</label>
                   </div>
-                  <div class="form-group">
-                    <label for="exampleInputEmail1">Responsable</label>
-                    <input type="text" name="nombre_responsable" class="form-control" id="exampleInputEmail1" value="<?php echo $fila['nombre_responsable'] ?>">
+                  <div class="help-info">Nombre de centro: 10, Max. Value: 200</div>
+                </div>
+                <div class="form-group form-float">
+                  <div class="form-line">
+                    <input type="text" class="form-control" name="nombre_responsable" value="<?php echo $fila['nombre_responsable'] ?>">
+                    <label class="form-label">Responsable</label>
                   </div>
-                  <div class="form-group">
-                    <label for="exampleInputEmail1">Apellido paterno</label>
-                    <input type="text" name="apellido_paterno" class="form-control" id="exampleInputEmail1" value="<?php echo $fila['apellido_paterno'] ?>">
+                  <div class="help-info">Juan</div>
+                </div>
+                <div class="form-group form-float">
+                  <div class="form-line">
+                    <input type="text" class="form-control" name="apellido_paterno" value="<?php echo $fila['apellido_paterno'] ?>">
+                    <label class="form-label">Apellido paterno</label>
                   </div>
-                  <div class="form-group">
-                    <label for="exampleInputEmail1">Apellido materno</label>
-                    <input type="text" name="apellido_materno" class="form-control" id="exampleInputEmail1" value="<?php echo $fila['apellido_materno'] ?>">
+                  <div class="help-info">Pérez</div>
+                </div>
+                <div class="form-group form-float">
+                  <div class="form-line">
+                    <input type="text" class="form-control" name="apellido_materno" value="<?php echo $fila['apellido_materno'] ?>">
+                    <label class="form-label">Apellido materno</label>
                   </div>
-                  <div class="form-group">
-                                    <label for="exampleInputEmail1">Nivel</label>
-                                    <select name="id_zona" class="form-control">
-                                       <?php
+                  <div class="help-info">Pérez</div>
+                </div>
+                <div class="form-group form-float">
+                  <div class="form-line">
+                    <select name="id_zona" class="form-control show-tick">
+                      <option selected="selected" disabled="disabled">Seleccionar zona</option>
+                      <?php
                                      $query = $conn->query("SELECT * FROM `zona`") or die(mysqli_error());
                                      while($filaorg = $query->fetch_array()){
 
@@ -72,27 +71,18 @@ $fila = $quey->fetch_array();
                                         }
                                     }
                                     ?>
-                            </select>
-                        </div>
+                    </select>
+                  </div>
                 </div>
-                <div class="card-footer">
-                  <button type="submit" class="btn btn-primary" name="editar">Guardar</button>
-                </div>
+                <button class="btn btn-primary waves-effect" type="submit" name="guardar">GUARDAR</button>
               </form>
-</div>
-<!-- /.card-body -->
-</div>
-<!-- /.card -->
-</div>
-<!-- /.col -->
-</div>
-<!-- /.row -->
-</div>
-<!-- /.container-fluid -->
-</section>
-<!-- /.content -->
-</div>
-<!-- /.content-wrapper -->
-<?php 
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+<?php
 include('foot.php');
 ?>
