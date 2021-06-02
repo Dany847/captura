@@ -30,6 +30,7 @@ if (isset($_GET["idActividad"]) && $_GET["idActividad"] != null) {
             echo mysqli_error($conn);
         }
         ?>
+        <input type="hidden" value="<?php echo $actividadId; ?>" name="Id" id="actividadId">
         <section class="content">
             <div class="container-fluid">
                 <div class="row clearfix">
@@ -59,7 +60,7 @@ if (isset($_GET["idActividad"]) && $_GET["idActividad"] != null) {
                                             <div class="form-group form-float">
                                                 <label class="form-label">Selecciona imagen de captura de facebook</label>
                                                 <div class="form-line">
-                                                    <input type="file" name="facebookImg" required>
+                                                    <input type="file" name="facebookImg" id="facebookImg" required>
 
                                                 </div>
                                             </div>
@@ -71,7 +72,7 @@ if (isset($_GET["idActividad"]) && $_GET["idActividad"] != null) {
                                             <div class="form-group form-float">
                                                 <div class="form-line">
                                                     <label class="form-label">Selecciona imagen de captura de twitter</label>
-                                                    <input type="file" name="twitterImg">
+                                                    <input type="file" name="twitterImg" id="twitterImg">
 
                                                 </div>
                                             </div>
@@ -79,38 +80,24 @@ if (isset($_GET["idActividad"]) && $_GET["idActividad"] != null) {
                                     </div>
 
                                     <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
-                                        <button type="submit" class="btn btn-primary btn-lg m-l-15 waves-effect submit">Registrar</button>
+                                        <button class="btn btn-primary btn-lg m-l-15 waves-effect submit" id="registrar">Registrar</button>
                                     </div>
 
                                 </form>
                                 <div class="statusMsg"></div>
                                 <hr>
                                 <h4>Ultimas capturas agregadas de esta actividad</h4>
-                                <table>
+                                <table class="table">
                                     <thead>
                                         <tr>
                                             <th>Nombre</th>
                                             <th>Img facebook</th>
                                             <th>Img twitter</th>
+                                            <th>Hora registrada</th>
                                         </tr>
                                     </thead>
-                                    <tbody>
-                                        <?php
-                                        $query =  mysqli_query($conn, $sqlUltimoAgregados);
-                                        if ($query) {
-                                            while ($item = mysqli_fetch_array($query)) {
-                                        ?>
-                                                <tr>
-                                                    <td><?php echo $item["nombre"] . " " . $item["apellido_paterno"] . " " . $item["apellido_materno"]; ?></td>
-                                                    <td>Imagen de la captura: <?php echo $item["url_cfacebook"] ?></td>
-                                                    <td>Imagen de la captura: <?php echo $item["url_ctwitter"] ?></td>
-                                                </tr>
-                                        <?php
-                                            }
-                                        } else {
-                                            echo mysqli_error($conn);
-                                        }
-                                        ?>
+                                    <tbody id="DataResult">
+
                                     </tbody>
                                 </table>
                             </div>
@@ -125,6 +112,7 @@ if (isset($_GET["idActividad"]) && $_GET["idActividad"] != null) {
 
 
             <script>
+                llenarTabla();
                 $(function() {
                     $("#miembro").autocomplete({
                         source: function(request, response) {
@@ -163,17 +151,51 @@ if (isset($_GET["idActividad"]) && $_GET["idActividad"] != null) {
                             success: function(msg) {
                                 $('.statusMsg').html('');
                                 if (msg == 'ok') {
-                                    $('#registrarCaptura')[0].reset();
+                                    limpiar();
                                     $('.statusMsg').html('<span style="font-size:18px;color:#34A853">La captura se guardo exitosamente.</span>');
+                                    llenarTabla();
                                 } else {
                                     $('.statusMsg').html('<span style="font-size:18px;color:#EA4335">Ocurrio algun error, intente de nuevo.</span>');
                                 }
-                                $('#registrarCaptura').css("opacity", "");
-                                $(".submitBtn").removeAttr("disabled");
                             }
                         });
                     });
                 });
+
+                function llenarTabla() {
+                    let actividadId = $("#actividadId").val();
+                    $.ajax({
+                        url: "ultimosAgregados.php",
+                        type: "post",
+                        data: {
+                            id: actividadId
+                        },
+                        dataType: "json",
+                        success: function(data) {
+                            let html = "";
+                            let i;
+                            for (i = 0; i < data.length; i++) {
+                                html += "<tr>" +
+                                    "<td>" + data[i].nombre + "</td>" +
+                                    "<td><img src='../capturas-img/" + data[i].url_cfacebook + "' height='40'></td>" +
+                                    "<td><img src='../capturas-img/" + data[i].url_ctwitter + "' height='40'></td>" +
+                                    "<td>" + data[i].hora + "</td>"
+                            }
+
+                            $('#DataResult').html(html);
+                        },
+                        error: function(jqXHR, textStatus, errorThrown) {
+                            alert("ocurrio algun error")
+                        }
+                    });
+                }
+
+                function limpiar() {
+                    $("#miembro").val("");
+                    $("#miembroId").val("");
+                    $("#facebookImg").val("");
+                    $("#twitterImg").val("");
+                }
             </script>
     </body>
 
