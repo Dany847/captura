@@ -70,10 +70,9 @@ if (isset($_GET["idActividad"]) && $_GET["idActividad"] != null) {
                                     <div class="row clearfix">
                                         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                                             <div class="form-group form-float">
+                                                <label class="form-label">Selecciona imagen de captura de twitter</label>
                                                 <div class="form-line">
-                                                    <label class="form-label">Selecciona imagen de captura de twitter</label>
                                                     <input type="file" name="twitterImg" id="twitterImg">
-
                                                 </div>
                                             </div>
                                         </div>
