@@ -159,7 +159,7 @@
                         </a>
                         <ul class="ml-menu">
                             <li>
-                                <a href="actividad/create_actividad.php">Registrar</a>
+                                <a href="create_actividad.php">Registrar</a>
                             </li>
                             <li>
                                 <a href="actividad">Ver en lista</a>

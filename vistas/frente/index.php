@@ -37,7 +37,7 @@ include('head.php');
                <td><?php echo $fila['nombre_frente']; ?></td>
                <td style="text-align: center; width: 200px;" >
 
-                <a onclick="eliminar(<?php echo $fila['id_frente']?>)"><button type="button" class="btn bg-red btn-xs waves-effect" style="border-radius: 100px; ">
+                <a onclick="eliminar(<?php echo $fila['id_frente']?>)"><button type="button" class="btn bg-red btn-xs waves-effect" style="border-radius: 100px;">
                 <i class="material-icons">delete_forever</i>
               </button></a>
 
