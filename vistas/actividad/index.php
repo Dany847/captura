@@ -47,11 +47,11 @@ include('head.php');
                     ?>
                       <tr>
                         <td><?php echo $contar; ?></td>
-                        <td width="200"><?php echo $fila['nombre_actividad']; ?></td>
-                        <td width="200"><?php echo $fila['url_facebook']; ?></td>
-                        <td width="200"><?php echo $fila['url_twitter']; ?></td>
+                        <td><?php echo $fila['nombre_actividad']; ?></td>
+                        <td><?php echo $fila['url_facebook']; ?></td>
+                        <td><?php echo $fila['url_twitter']; ?></td>
                         <td><?php echo $fila['fecha']; ?></td>
-                        <td style="width: 550px;">
+                        <td >
                           <a onclick="eliminar(<?php echo $fila['id_actividad'] ?>)"><button type="button" class="btn bg-red btn-xs waves-effect" style="border-radius: 100px;">
                               <i class="material-icons">delete_forever</i>
                             </button> </a>

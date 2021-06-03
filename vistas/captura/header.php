@@ -166,9 +166,6 @@
                         </a>
                         <ul class="ml-menu">
                             <li>
-                                <a href="buscar_actividad.php">Registrar</a>
-                            </li>
-                            <li>
                                 <a href="index.php">Ver en lista</a>
                             </li>
                         </ul>
