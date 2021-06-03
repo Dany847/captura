@@ -47,11 +47,11 @@ include('head.php');
                     ?>
                       <tr>
                         <td><?php echo $contar; ?></td>
-                        <td><?php echo $fila['nombre_actividad']; ?></td>
-                        <td><?php echo $fila['url_facebook']; ?></td>
-                        <td><?php echo $fila['url_twitter']; ?></td>
+                        <td width="200"><?php echo $fila['nombre_actividad']; ?></td>
+                        <td width="200"><?php echo $fila['url_facebook']; ?></td>
+                        <td width="200"><?php echo $fila['url_twitter']; ?></td>
                         <td><?php echo $fila['fecha']; ?></td>
-                        <td style="text-align: center; width: 200px;">
+                        <td style="width: 550px;">
                           <a onclick="eliminar(<?php echo $fila['id_actividad'] ?>)"><button type="button" class="btn bg-red btn-xs waves-effect" style="border-radius: 100px;">
                               <i class="material-icons">delete_forever</i>
                             </button> </a>
@@ -60,7 +60,10 @@ include('head.php');
                           <?php echo "<a href='up_actividad.php?id_actividad=" . $fila['id_actividad'] . "'> <button type='button' class='btn bg-light-green btn-xs waves-effect' style='border-radius: 100px;'>
                     <i class='material-icons'>border_color</i>
                     </button> </a>"; ?>
-                          <a href="../captura/registrar_captura.php?idActividad=<?php echo $fila['id_actividad']; ?>">Agregar capturas</a>
+                     &nbsp; &nbsp; &nbsp;
+                          <a href="../captura/registrar_captura.php?idActividad=<?php echo $fila['id_actividad']; ?>"><button type="button" class="btn btn-info btn-xs waves-effect" style="border-radius: 100px;">
+                              <i class="material-icons">image</i>
+                            </button></a>
                         </td>
                       </tr>
                     <?php

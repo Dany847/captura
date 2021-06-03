@@ -53,12 +53,32 @@ include('head.php');
                     <select name="id_zona" class="form-control show-tick">
                       <option selected="selected" disabled="disabled">Seleccionar zona</option>
                       <?php
-                      $query = $conn->query("SELECT * FROM `zona` ORDER BY `nombre_zona`") or die(mysqli_error());
+                      $query = $conn->query("SELECT * FROM `zona` ORDER BY `numero_zona`") or die(mysqli_error());
                       while($fila = $query->fetch_array()){
                         ?>
+                        <?php if ($fila['numero_zona']== "Zona 1"){ ?>
+                          <option value="<?php echo $fila['id_zona']?>" style="font-weight: bold;"><?php echo $fila['nombre_zona']?></option>
+                        <?php } if($fila['numero_zona']== "Zona 2") { ?>
                         <option value="<?php echo $fila['id_zona']?>"><?php echo $fila['nombre_zona']?></option>
+                        <?php } else { ?>
+                        <?php } if($fila['numero_zona']== "Zona 3") { ?>
+                        <option value="<?php echo $fila['id_zona']?>" style="font-weight: bold;"><?php echo $fila['nombre_zona']?></option>
+                        <?php } else { ?>
+                          <?php } if($fila['numero_zona']== "Zona 4") { ?>
+                        <option value="<?php echo $fila['id_zona']?>"><?php echo $fila['nombre_zona']?></option>
+                        <?php } else { ?>
+                          <?php } if($fila['numero_zona']== "Zona 5") { ?>
+                        <option value="<?php echo $fila['id_zona']?>" style="font-weight: bold;"><?php echo $fila['nombre_zona']?></option>
+                        <?php } else { ?>
+                          <?php } if($fila['numero_zona']== "Zona 6") { ?>
+                        <option value="<?php echo $fila['id_zona']?>"><?php echo $fila['nombre_zona']?></option>
+                        <?php } else { ?>
+                          <?php } if($fila['numero_zona']== "Zona 7") { ?>
+                        <option value="<?php echo $fila['id_zona']?>" style="font-weight: bold;"><?php echo $fila['nombre_zona']?></option>
+                        <?php } else { ?>
                         <?php
                       }
+                    }
                       ?>
                     </select>
                   </div>
