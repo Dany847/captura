@@ -166,7 +166,7 @@
                         </a>
                         <ul class="ml-menu">
                             <li>
-                                <a href="../captura/buscar_actividad.php">Registrar</a>
+                                <a href="../captura/buscar_actividad.php">Registrar Captura</a>
                             </li>
                             <li>
                                 <a href="#">Ver en lista</a>

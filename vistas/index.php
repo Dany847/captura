@@ -204,7 +204,7 @@ include('head.php');
 									</div>
 								</div>
 								</a>
-								<a href="#">
+								<a href="captura">
 								<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
 									<div class="info-box bg-cyan hover-zoom-effect">
 										<div class="icon">

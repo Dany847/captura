@@ -74,7 +74,7 @@ include('head.php');
                     </select>
                   </div>
                 </div>
-                <button class="btn btn-primary waves-effect" type="submit" name="guardar">GUARDAR</button>
+                <button class="btn btn-primary waves-effect" type="submit" name="editar">GUARDAR</button>
               </form>
             </div>
           </div>
