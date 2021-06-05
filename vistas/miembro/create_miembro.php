@@ -52,7 +52,6 @@ include('head.php');
                   <div class="form-line">
                     <select name="id_frente" class="form-control show-tick">
                       <option selected="selected" disabled="disabled">Seleccionar frente</option>
-                       <optgroup label='<?php echo "Fila 1"; ?>'>
                       <?php
                            $query = $conn->query("SELECT * FROM `frente` ORDER BY `nombre_frente`") or die(mysqli_error());
                             while($fila = $query->fetch_array()){
@@ -63,7 +62,6 @@ include('head.php');
                          <?php
                          }
                          ?>
-                          </optgroup>
                     </select>
                   </div>
                 </div>
