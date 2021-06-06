@@ -64,10 +64,12 @@ if (!empty($_POST["miembroId"]) || !empty($_POST["actividadId"])) {
     VALUES (NULL, '$miembroId', '$actividadId', '$nomImgFacebbok', '$nomImgTwitter')";
 
     $conn = new mysqli('localhost', 'root', '', 'captura') or die("Error");
+    if ('$miembroId' == `id_miembro` && '$actividadId' == `id_actividad`) {
+        echo "datos ya existe";
+    }
     if (!$conn) {
         die("Error: error de conexión: " . $conn->connect_error);
     }
-
     $query = $conn->query($sql);
     error_log("q: " . $query);
     echo $query ? "ok" : "err";

@@ -17,7 +17,7 @@ include('head.php');
             <div class="card">
                 <div class="header">
                     <h2>
-                        MOSTRANDO LA ACTIVIDADES REALIZADAS
+                        IFORME FINAL
                     </h2>
                 </div>
                 <div class="body">
@@ -36,12 +36,12 @@ include('head.php');
                             <tbody>
                                 <tr>
                                  <?php
-                                 $query =  $conn->query("select captura.id_captura, miembro.nombre, miembro.apellido_paterno, centro_trabajo.nombre_centro, actividad.nombre_actividad
-                                  from captura
-                                  inner join miembro on miembro.id_miembro = captura.id_miembro
-                                  inner join organismo on organismo.id_organismo = miembro.id_organismo
-                                  inner join centro_trabajo on centro_trabajo.id_centro = organismo.id_centro
-                                  inner join actividad on actividad.id_actividad = captura.id_actividad") or die(mysql_error());
+                                 $query =  $conn->query("select informe.id_informe, informe.fecha_cierre, informe.p_facebook, informe.p_twitter, informe.r_facebook, informe.r_twitter, frente.nombre_frente, zona.nombre_zona
+                                  from informe
+                                  inner join actividad on actividad.id_actividad = informe.id_actividad
+
+                                  inner join frente on frente.id_frente = informe.id_frente
+                                  inner join zona on zona.id_zona = informe.id_zona") or die(mysql_error());
                                  $contar = 0;
                                  while($fila = $query->fetch_array()){
                                   $contar++;
@@ -53,7 +53,7 @@ include('head.php');
                                    <td><?php echo $fila['nombre_centro']; ?></td>
                                    <td><?php echo $fila['nombre_actividad']; ?></td>
                                    <td>
-                                       <a onclick="eliminar(<?php echo $fila['id_captura']?>)"><button type="button" class="btn bg-red btn-xs waves-effect" style="border-radius: 100px;">
+                                       <a onclick="eliminar(<?php echo $fila['id_informe']?>)"><button type="button" class="btn bg-red btn-xs waves-effect" style="border-radius: 100px;">
                                           <i class="material-icons">delete_forever</i>
                                       </button> </a>
                                   </td>
@@ -75,32 +75,3 @@ include('head.php');
 <?php
 include('foot.php');
 ?>
-<script type="text/javascript">
-  function eliminar(id_captura) {
-    console.log(id_captura);
-    swal({
-      title: "Esta seguro de Eliminar?",
-      text: "Una vez eliminado no se prodra restablecer!",
-      icon: "warning",
-      buttons: true,
-      dangerMode: true,
-  })
-    .then((OK) => {
-      if (OK) {
-        $.ajax({
-         url:"../../delete/eliminar_captura.php?del=" + id_captura,
-         success: function(res) {
-          console.log(res);
-      },      
-  });
-        swal("Poof! Registro eliminado!", {
-          icon: "success",
-      }).then((ok)=>{
-          if(ok){
-            location.href="../captura/index.php";
-        }
-    });
-  } 
-});
-}
-</script>

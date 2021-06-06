@@ -14,13 +14,13 @@ $apellido_materno = $_POST['apellido_materno'];
 	if ($q == 1) {
 		echo ' <script type="text/javascript">
  	alert("Nombre del organismo ya existe");
- 	window.location = "../vistas/organismo/index.php";
+ 	window.location = "../vistas/organismo/create_organismo.php";
  </script>';
 	}else{
   $conn->query("INSERT INTO `organismo` VALUES('', '$id_frente', '$id_centro', '$nombre_organismo', '$nombre_responsable', '$apellido_paterno', '$apellido_materno')") or die(mysql_error());
 		echo ' <script type="text/javascript">
  	alert("Datos Guardados Exitosamente");
- 	window.location = "../vistas/organismo/index.php";
+ 	window.location = "../vistas/organismo/create_organismo.php";
  </script>';
 	}
 }
